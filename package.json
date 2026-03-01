@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@tanstack/react-query": "^5.89.0",
+    "axios": "^1.12.2",
+    "nodemailer": "^7.0.10",
+    "zod": "^4.1.9"
+  }
+}

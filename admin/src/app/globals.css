@@ -1,8 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Blue CRM theme variables (you can tweak later) */
+/* theme tokens… */
 :root{
   --bg:#0b1220;
   --panel:#0d1526;
@@ -10,15 +8,27 @@
   --line:#1f2b4d;
   --text:#e8eefb;
   --muted:#a6b2d9;
-  --brand:#2563eb;   /* primary blue */
-  --brand-2:#1e40af; /* darker blue */
+  --brand:#2563eb;
+  --brand-2:#1e40af;
   --card:#0f1528;
 }
-
+:root { color-scheme: dark; }
 * { border-color: var(--line); }
+html, body { height: 100%; }
 body { background: var(--bg); color: var(--text); }
-/* Light CRM theme override (doesn't touch Topbar/Sidebar code) */
+/* …the rest of your CSS … */
+
+
+/* Light override */
 body.light {
-  background: #f5f7f9;   /* canvas like screenshot */
-  color: #1f2937;        /* slate-800 text */
+  color-scheme: light;
+  background:#f5f7f9;
+  color:#1f2937;
+  --panel:#fff;
+  --panel-2:#f8fafc;
+  --line:#e5e7eb;
+  --muted:#6b7280;
+  --card:#fff;
 }
+
+.force-light { color-scheme: light; }

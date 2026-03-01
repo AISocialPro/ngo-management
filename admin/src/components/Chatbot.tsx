@@ -47,7 +47,7 @@ export default function Chatbot() {
         id: crypto.randomUUID(),
         role: "bot",
         text:
-          "Thanks! I’ve captured that. (Demo reply)\nTip: Try “show active branches”, “latest donations”, or “export monthly report”.",
+          "Thanks! I've captured that. (Demo reply)\nTip: Try \"show active branches\", \"latest donations\", or \"export monthly report\".",
         time: "Just now",
       },
     ];
@@ -61,6 +61,7 @@ export default function Chatbot() {
         onClick={() => setOpen((s) => !s)}
         className="fixed bottom-6 right-6 z-[1100] grid h-14 w-14 place-items-center rounded-full bg-[#1e88e5] text-white shadow-xl transition hover:scale-105"
         aria-label="Open chat"
+        suppressHydrationWarning
       >
         <i className="fa-solid fa-comments text-2xl" />
       </button>
@@ -81,6 +82,7 @@ export default function Chatbot() {
               className="text-white/90 hover:text-white"
               onClick={() => setOpen(false)}
               aria-label="Close chat"
+              suppressHydrationWarning
             >
               <i className="fa-solid fa-xmark text-xl" />
             </button>
@@ -108,10 +110,12 @@ export default function Chatbot() {
               onKeyDown={(e) => e.key === "Enter" && send()}
               placeholder="Type a message…"
               className="flex-1 rounded-lg border border-gray-300 px-3 py-2 text-sm outline-none focus:border-[#1e88e5]"
+              suppressHydrationWarning
             />
             <button
               onClick={send}
               className="rounded-lg bg-[#1e88e5] px-3 py-2 text-sm font-medium text-white hover:opacity-95"
+              suppressHydrationWarning
             >
               Send
             </button>

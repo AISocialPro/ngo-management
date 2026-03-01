@@ -19,15 +19,17 @@ export const SIDEBAR_OPEN_W = 250;
 export const SIDEBAR_CLOSED_W = 70;
 
 const MENU: Item[] = [
-  { icon: "fa-home",               label: "Dashboard",              href: "/admin" },
+  { icon: "fa-home",               label: "Dashboard",              href: "/admin/dashboard" },
   { icon: "fa-code-branch",        label: "Branches",               href: "/admin/branches" },
   { icon: "fa-project-diagram",    label: "Campaigns/Projects",     href: "/admin/campaigns" },
   { icon: "fa-donate",             label: "Donations",              href: "/admin/donations" },
   { icon: "fa-hands-helping",      label: "Volunteers",             href: "/admin/volunteers" },
   { icon: "fa-hand-holding-heart", label: "Beneficiaries",          href: "/admin/beneficiaries" },
+  { icon: "fa-user-tie",           label: "Board of Trustees",      href: "/admin/trustees" }, // <-- added
   { icon: "fa-chart-line",         label: "Reports & Analytics",    href: "/admin/reports" },
   { icon: "fa-calendar-alt",       label: "Events",                 href: "/admin/events" },
   { icon: "fa-file-contract",      label: "Compliance/Documents",   href: "/admin/compliance" },
+  { icon: "fa-key",      label: "Passwords",   href: "/admin/passwords" },
   { icon: "fa-comments",           label: "Communication Center",   href: "/admin/communication" },
   { icon: "fa-cog",                label: "Settings",               href: "/admin/settings" },
   { icon: "fa-life-ring",          label: "Help & Support",         href: "/admin/help" },
@@ -60,7 +62,7 @@ export default function Sidebar({ collapsed, onToggle }: SidebarProps) {
         </div>
 
         {/* Hamburger */}
-        <button
+        <button suppressHydrationWarning
           aria-label="Toggle sidebar"
           onClick={onToggle}
           className="p-2 rounded-md hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"

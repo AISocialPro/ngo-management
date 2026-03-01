@@ -20,7 +20,8 @@ export default function Topbar() {
       {/* Search */}
       <div className="relative flex items-center bg-[#f8f9fa] rounded-full px-4 py-2 w-[300px]">
         <i className="fas fa-search text-gray-500"></i>
-        <input
+        <input 
+          suppressHydrationWarning={true} // 👈 Add this line
           type="text"
           placeholder="Search..."
           className="ml-2 bg-transparent outline-none w-full"
@@ -44,7 +45,8 @@ export default function Topbar() {
       {/* Right */}
       <div className="flex items-center">
         <div className="relative mr-5" ref={dropRef}>
-          <button
+          <button 
+            suppressHydrationWarning={true} // 👈 Add this line here too
             className="relative"
             onClick={(e) => {
               e.stopPropagation();

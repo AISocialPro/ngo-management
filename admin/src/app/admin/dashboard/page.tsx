@@ -2,10 +2,16 @@
 
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
-
+import LiveDate from "@/components/LiveDate";
 export default function DashboardPage() {
   const donationRef = useRef<Chart | null>(null);
   const demoRef = useRef<Chart | null>(null);
+
+  // Mock user data for display
+  const user = {
+    name: "Admin User",
+    role: "Administrator",
+  };
 
   useEffect(() => {
     // ---- Donation line chart
@@ -74,8 +80,8 @@ export default function DashboardPage() {
     <div className="min-h-screen w-full overflow-x-hidden p-5">
       {/* Header */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-2xl font-semibold text-[#343a40]">Dashboard Overview</h2>
-        <p className="text-gray-600">Monday, 15 January 2023</p>
+        <h2 className="text-2xl font-semibold text-[#343a40]">Welcome back, {user.name}</h2>
+   <LiveDate className="text-gray-600" />
       </div>
 
       {/* Stat cards */}

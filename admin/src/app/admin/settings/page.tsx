@@ -1,5 +1,5 @@
 'use client';
-
+import LiveDate from "@/components/LiveDate";
 import { useMemo, useState } from 'react';
 
 /* utils */
@@ -33,7 +33,7 @@ const TABS: { key: Tab; label: string }[] = [
   { key: 'integrations', label: 'SSO & SMTP' },
   { key: 'api', label: 'API & Webhooks' },
   { key: 'privacy', label: 'Privacy & Legal' },
-  { key: 'billing', label: 'Billing' },
+  
   { key: 'backup', label: 'Backup & Export' },
   { key: 'audit', label: 'Audit Logs' },
   { key: 'advanced', label: 'Advanced' },
@@ -127,7 +127,7 @@ export default function SettingsPage() {
           {tab === 'integrations' && <IntegrationsSection />}
           {tab === 'api' && <ApiWebhooksSection />}
           {tab === 'privacy' && <PrivacySection />}
-          {tab === 'billing' && <BillingSection />}
+          
           {tab === 'backup' && <BackupSection />}
           {tab === 'audit' && <AuditSection />}
           {tab === 'advanced' && <AdvancedSection />}
@@ -721,74 +721,6 @@ function PrivacySection() {
   );
 }
 
-function BillingSection() {
-  return (
-    <div className="space-y-5">
-      <Row>
-        <Card>
-          <h3 className="mb-2 text-lg font-semibold text-slate-900">Plan</h3>
-          <p>
-            <b>Professional</b> — $99/mo
-          </p>
-          <ul className="mt-2 list-disc pl-5 text-sm text-slate-600">
-            <li>White-label branding</li>
-            <li>SSO & API</li>
-            <li>Priority support</li>
-          </ul>
-          <button
-            onClick={() => alert('Change plan (demo)')}
-            className="mt-3 rounded-md border border-sky-600 px-3 py-2 text-sm text-sky-700 hover:bg-sky-50"
-          >
-            Change Plan
-          </button>
-        </Card>
-        <Card>
-          <h3 className="mb-2 text-lg font-semibold text-slate-900">Billing Details</h3>
-          <Field label="Card" defaultValue="Visa •••• 4242" />
-          <Field label="Invoices Email" defaultValue="billing@ngoconnect.org" />
-          <button
-            onClick={() => alert('Billing saved (demo)')}
-            className="mt-3 rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700"
-          >
-            Save Billing
-          </button>
-        </Card>
-      </Row>
-
-      <Card>
-        <h3 className="mb-2 text-lg font-semibold text-slate-900">Invoice History</h3>
-        <table className="w-full border-collapse text-sm">
-          <thead>
-            <tr className="border-b">
-              <th className="py-2 text-left">Date</th>
-              <th className="py-2 text-left">Invoice #</th>
-              <th className="py-2 text-left">Amount</th>
-              <th className="py-2 text-left">Status</th>
-            </tr>
-          </thead>
-        <tbody className="[&>tr:nth-child(even)]:bg-slate-50">
-            <tr className="border-b">
-              <td className="py-2">Jan 01, 2023</td>
-              <td className="py-2">INV-2023-001</td>
-              <td className="py-2">$99.00</td>
-              <td className="py-2">
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-emerald-700">Paid</span>
-              </td>
-            </tr>
-            <tr>
-              <td className="py-2">Dec 01, 2022</td>
-              <td className="py-2">INV-2022-012</td>
-              <td className="py-2">$99.00</td>
-              <td className="py-2">
-                <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-emerald-700">Paid</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </Card>
-    </div>
-  );
-}
 
 function BackupSection() {
   return (

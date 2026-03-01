@@ -1,31 +1,24 @@
-// src/app/layout.tsx
-import "../globals.css";
-import type { Metadata } from "next";
+"use client";
+
 import AppShell from "@/components/AppShell";
-import Chatbot from "@/components/Chatbot"; // importing a client component is OK
+import Chatbot from "@/components/Chatbot";
 
-export const metadata: Metadata = {
-  title: "NGO Connect",
-  description: "Admin portal",
-};
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <html lang="en">
-      <head>
-        {/* Font Awesome (only once, pick one version) */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        />
-      </head>
-      {/* 'light' class keeps your light dashboard canvas without touching Topbar/Sidebar */}
-      <body className="light min-h-screen antialiased">
-        <AppShell>{children}</AppShell>
-
-        {/* Chatbot shows on all pages */}
+    <QueryClientProvider client={queryClient}>
+      <AppShell>
+        {children}
         <Chatbot />
-      </body>
-    </html>
+      </AppShell>
+    </QueryClientProvider>
   );
 }
